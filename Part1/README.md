@@ -1,5 +1,7 @@
 # Creating a basic web backend API Part 1
 
+## Basics
+
 Using Nodejs engine with the express framework, we can create an API that can route requests.
 Routing of requests is done by a few parameters
 
@@ -25,7 +27,10 @@ Here, all the logic will run.
 
 So if you want to login, you run all your authentication logic here. If you want to get information about a product, you call the database and recieve the information here.
 
+## Background
+
 Before we get into the code, here is some background.
+
 Nodejs uses npm as a package manager.
 What a package manager does is literally what its name is. Manage packages. Why? Think of it this way. If you code on your machine using certain packages, I might not have those packages. This will cause me to run into problems when I run your code.
 
@@ -65,8 +70,7 @@ If you don't, please raise an issue on github.
 
 Lets look into the code.
 
-This code is very simple and is the bare bones of a webserver with literally not much functionality.
-But it is sufficient to show what we talked about above
+This code is very simple and is the bare bones of a webserver with literally not much functionality. But it is sufficient to show what we talked about above
 
 The code is in the file index.js
 
