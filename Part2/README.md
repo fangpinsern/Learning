@@ -1,5 +1,11 @@
 # Creating a basic web backend API Part 2
 
+## Overview
+
+How to write a useful GET and POST request with interaction between client and server?
+
+How to extract information from the request?
+
 After knowing the bare bones of the application, we move on to more exciting things. In order for an API to be useful, there needs to be some information exchange between the client and the server.
 
 This information is done through the request and response parameters. From the previous part, we see the request and response in the function.
