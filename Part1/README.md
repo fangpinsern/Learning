@@ -61,9 +61,10 @@ You should see "Hello World"
 
 If you don't, please raise an issue on github.
 
-## The code
+## The Code
 
 Lets look into the code.
+
 This code is very simple and is the bare bones of a webserver with literally not much functionality.
 But it is sufficient to show what we talked about above
 
@@ -126,3 +127,16 @@ app.get("/bye", function(req, res) {
     res.send("bye bye world");
 })
 ```
+
+## Others
+
+```
+var server = app.listen(8080, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log("Example app listening at http://%s:%s", host, port);
+});
+```
+
+The above is how the server is started. It is listening on port 8080 and the callback function will be called when it is sucessfully running and print out the string
