@@ -71,7 +71,7 @@ Here, the domain and path MAY be the same as above but the request type is not.
 
 ## Main Info
 
-After a basic understanding of what each request does, we have get the information sent by the client.
+After a basic understanding of what each request does, we have to get the information sent by the client.
 
 Putting the following code in any of the GET functions will show you
 
@@ -79,7 +79,7 @@ Putting the following code in any of the GET functions will show you
 console.log(req)
 ```
 
-You will see a long list of things in your console. These are all information you can extract from the request.
+You will see a long list of things in your console. These are all the information you can extract from the request.
 
 ### GET Reqeust
 
@@ -133,7 +133,7 @@ This is mostly what is needed to send a get request.
 
 As mentioned in the pre-req, post request usually sends information in the body. We will be using the JSON format here.
 
-To extract information out of request body, we need this thing called middlewares. We will go into more detail about middlewares in the next part. But for now, just think of it as part of flow a request takes
+To extract information out of request body, we need this thing called middlewares. We will go into more detail about middlewares in the next part. But for now, just think of it as part of the flow a request takes
 
 path a request takes
 
@@ -196,4 +196,4 @@ What is happening here?
 4. Processing the information to see if its an authorized login.
 5. Send response to client with a message
 
-\*\*NOTE: NEVER STORE YOUR PASSWORDS THIS WAY. THIS IS JUST FOR DEMONSTARTION PURPOSES. ANY SENSTIVE INFORMATION SHOULD WE STORED IN A SEPERATE FILE ON YOUR LOCAL MACHINE. IT IS USUALLY CALLED THE ENV FILE.
+\*\*NOTE: NEVER STORE YOUR PASSWORDS THIS WAY. THIS IS JUST FOR DEMONSTRATION PURPOSES. ANY SENSITIVE INFORMATION SHOULD BE STORED IN A SEPARATE FILE ON YOUR LOCAL MACHINE. IT IS USUALLY CALLED THE ENV FILE.

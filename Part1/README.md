@@ -7,19 +7,19 @@ Routing of requests is done by a few parameters
 
 1. Method
 
-- The are a few common http methods.
+- There are a few common http methods.
 - The most common are GET, POST, PUT, DELETE
-- This are usually define what the request does
+- This usually define what the request does
 
 2. Path
 
-- The path it takes is which the slash part of the URL
+- The path it takes is the slash part of the URL
 - For example, example.com/api/v1/helloworld
 - "/api/v1/helloworld" is the path where every slash is a direction
 - So in your application, there can be routes to /api/v2
 - or /api/v1/whatsup
 
-After the request is routed, if will call a function in NodeJs.
+After the request is routed, it will call a function in NodeJs.
 
 This is commonly called a controller.
 
@@ -96,9 +96,9 @@ With the above code, we created an "API" with the "GET" method which sends a "He
 Using some pattern recognition, we can see exactly what this code does. I hope.
 
 req and res are request and response respectively. There are parameters that will be passed to the function by the application.
-We will use more of this in the next part. But simply put, req is the request parameter is all the information sent by the client to you and response is all the information you are sending back to the client.
+We will use more of this in the next part. But simply put, req is the request parameter and is all the information sent by the client to you, and response is all the information you are sending back to the client.
 
-To further drive how the point, lets try to write an API with the path "/bye" that sends "bye bye world"
+To further drive home the point, lets try to write an API with the path "/bye" that sends "bye bye world"
 
 Try first then see below plssss
 
