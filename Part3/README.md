@@ -50,7 +50,7 @@ To do this, we have the check the request body before it is sent to the controll
 function loginSchemaValidator(req, res, next) {
     const body = req.body;
     if (!body) {
-        return res.send("Invalid Body! Body requires keys username and password)
+        return res.send("Invalid Body! Body requires keys username and password")
     }
     const username = body.username;
     const password = body.password;
@@ -95,3 +95,80 @@ It should return you "Invalid Body! Body requires keys username and password".
 ### Global middleware
 
 \*\*NOTE: These are just names that I made up
+
+Middleware can be non route specific as well. It be used before every request regardless of route, or just access to some routes.
+
+One common example is the `express.json()` code we used previously to help us extract POST request body from the request.
+
+You can write your own middlewares to do other stuff as well. Some examples include protecting routes, decode certain information for easy access within the routes, etc.
+
+Here we will be doing some "decoding" of information sent and send them on to the routes. In this example, the client sends a request with a body that includes the userId.
+
+```
+{
+    "userid": 1
+}
+```
+
+To "decode" it, we do the following:
+
+```
+function decodeMiddleware(req, res, next){
+    const userIdToInfoMapping = {
+        1: {
+            "name": "johndoe",
+            "hobby": "nothing"
+        },
+        2: {
+            "name": "johnfoe",
+            "hobby": "manythings"
+        }
+    };
+    const body = req.body;
+    const userId = body.userId;
+
+    const user = userIdToInfoMapping[userId];
+
+    if (!user) {
+        return res.send("NOT AUTHORIZED");
+    }
+    req.user = user;
+    next();
+}
+```
+
+What is happening above?
+
+1. Extracting the userId from the body
+2. Looking for the user in the dictionary
+3. If the userId is not in the dictionary, we will not allow it to pass
+4. Else we assign the user information to req.user and call next()
+
+What is interesting here is that the request is just passed on with a user key included. So any function after this middleware can access this user information by calling `req.user`.
+
+To use this middleware, we add the following code to the section of paths we want to "protect".
+
+```
+app.use(decodeMiddleware)
+```
+
+In our example code, I placed it before the `/bye` route, changed the method and modified the controller a little to show how we can extract the user information.
+
+Here is the new `/bye` controller.
+
+```
+app.post("/bye", function (req, res) {
+  const user = req.user;
+  res.send("I am " + user.name + " and i like " + user.hobby);
+});
+```
+
+Try it out on postman and see if you get the desired behavior.
+
+Try the following:
+
+1. No body in request at all //NOT AUTHORIZED
+2. Have a body with userId: 1 //I am johndoe and i like nothing
+3. Have body with userId: 3 //NOT AUTHORIZED
+
+Now you have learned about middlewares, what else could you do with them?
