@@ -8,7 +8,7 @@ Now that we have made some simple requests, it is on to the fun stuff. In this s
 
 Express allows you to have middlewares for your requests. Middlewares are something like checkpoints that your request has to get though.
 
-//insert image here
+![Middleware Example](./middleware.jpeg)
 
 The middleware function has access to the request and response objects as well.
 
