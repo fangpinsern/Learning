@@ -10,7 +10,7 @@ So before we expand our code further, we will try to handle errors in a more ele
 
 ### Side track
 
-If you try an undefined route like `/whotttt` in the code from part3, you will get "NOT AUTHORIZED". Why this is happening? Because the code is read like a script and it as passed all defined routes and non match. When it hits the "decodeMiddleware" middleware, it runs a check on the body since it is empty, it will respond as "NOT AUTHORIZED".
+If you try an undefined route like `/whotttt` in the code from part3, you will get "NOT AUTHORIZED". Why is this happening? Because the code is read like a script and it has passed all defined routes and none match. When it hits the "decodeMiddleware" middleware, it runs a check on the body since it is empty, it will respond as "NOT AUTHORIZED".
 
 If you insert a valid body like `{"userId":1}`, it will allow you to pass and you will get something like "Cannot GET /whotttt". This is not nice and may possibly break things.
 
