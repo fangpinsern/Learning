@@ -49,7 +49,7 @@ app.use(function (err, req, res, next) {
 What are we doing here?
 
 1. err is passing into the middleware as a function.
-2. From the err parameter, we extract the status. If there is not status, we will use 500 as a default
+2. From the err parameter, we extract the status. If there is no status, we will use 500 as a default
 3. We log the error message
 4. A response is sent back to the client with status and a json message attached to it.
 
