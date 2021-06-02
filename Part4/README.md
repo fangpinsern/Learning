@@ -2,7 +2,7 @@
 
 ## Overview
 
-As our code base gets bigger, we need a better way to handle errors. For example, now if a request sent does not need the requirement, you use `res.send` to send a message. However, doing that in every single function is time intensive and a alot of code duplication!
+As our code base gets bigger, we need a better way to handle errors. For example, now if a request sent does not meet the requirement, you use `res.send` to send a message. However, doing that in every single function is time intensive and a lot of code duplication!
 
 For example, if some one says to change the error message tomorrow to a JSON format instead, you will be plucking your hairs changing every line.
 
