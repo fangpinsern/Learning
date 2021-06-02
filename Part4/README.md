@@ -140,7 +140,7 @@ This is just the basic of error handling. However, if you need to change the way
 
 Try out changing all the errors.
 
-\*\*NOTE: What is meant by errors are things that disrupts the intended flow of the request. For example, incorrect body format is an error, unauthorized login is also an error. It does not have to be be server breaking errors only.
+\*\*NOTE: What is meant by errors are things that disrupts the intended flow of the request. For example, incorrect body format is an error, unauthorized login is also an error. It does not have to be server breaking errors only.
 
 ## Extra stuff
 
