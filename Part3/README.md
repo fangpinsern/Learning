@@ -26,7 +26,7 @@ There are some middlewares that are route specific and there are others which ap
 
 ### Pre-Req Stuff
 
-Before we go into middlewares, there is another part of the controllers that we have to know about. Other than taking in a request and response, they also take in a parameter called "next". What "next" does when called is that is send the request and response to the next function to be processed.
+Before we go into middlewares, there is another part of the controllers that we have to know about. Other than taking in a request and response, they also take in a parameter called "next". What "next" does when called is that it sends the request and response to the next function to be processed.
 
 So here is how a route will look like with a "next" parameter now.
 
@@ -44,7 +44,7 @@ The next function is very useful for many scenarios. It will make more sense aft
 
 In the previous example, we have a login API. However, we have to trust that the client is giving us the correct body format. If the client does not give us the correct format and decides to mess with us, it might break our systems.
 
-To do this, we have the check the request body before it is sent to the controller. Here we will use a middleware to do it.
+To do this, we have to check the request body before it is sent to the controller. Here we will use a middleware to do it.
 
 ```
 function loginSchemaValidator(req, res, next) {
@@ -63,7 +63,7 @@ function loginSchemaValidator(req, res, next) {
 }
 ```
 
-Above is a very simple implementation of a validator. You can also use a library like [yup](https://www.npmjs.com/package/yup) that can you do validations on types as well.
+Above is a very simple implementation of a validator. You can also use a library like [yup](https://www.npmjs.com/package/yup) that can help you do validations on types as well.
 
 We can see that the middleware function looks just like the controller function. In fact, the controller function can take a next parameter as well for default error handling (more on that later).
 
@@ -78,8 +78,8 @@ app.post('/login', loginSchemaValidator, (req, res){
 What would happen now if you try to login?
 
 1. The request reaches the server
-2. It passes through loginSchemaValidator to to check if the request body is valid.
-3. If it is valid, it will continue as normal and run the login logic
+2. It passes through loginSchemaValidator to check if the request body is valid.
+3. If it is valid, it will continue as per normal and run the login logic
 4. However, if it is not valid, it will throw an error and end there.
 
 Try it with the following request bodies:
@@ -96,17 +96,17 @@ It should return you "Invalid Body! Body requires keys username and password".
 
 \*\*NOTE: These are just names that I made up
 
-Middleware can be non route specific as well. It be used before every request regardless of route, or just access to some routes.
+Middleware can be non route specific as well. It can be used before every request regardless of route, or just access to some routes.
 
 One common example is the `express.json()` code we used previously to help us extract POST request body from the request.
 
-You can write your own middlewares to do other stuff as well. Some examples include protecting routes, decode certain information for easy access within the routes, etc.
+You can write your own middlewares to do other stuff as well. Some examples include protecting routes, decoding certain information for easy access within the routes, etc.
 
 Here we will be doing some "decoding" of information sent and send them on to the routes. In this example, the client sends a request with a body that includes the userId.
 
 ```
 {
-    "userid": 1
+    "userId": 1
 }
 ```
 
