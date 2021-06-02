@@ -55,7 +55,7 @@ What are we doing here?
 
 \*\*NOTE: This is one of the many response function that are available in the response object. For more details, you can have a look at the documentation [here](http://expressjs.com/en/api.html#res).
 
-Whit this special error handling middleware, how do we use it?
+With this special error handling middleware, how do we use it?
 
 We use it by adding an argument to the `next()` call that we always use. This is the same next call that is in all middlewares and controllers but we always leave the parameters empty.
 
